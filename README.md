@@ -1,4 +1,5 @@
-![repo logo] (images/kube-ns-cleaner.png)
+![repo logo] 
+(https://github.com/vvoronov2/kube-ns-cleaner/blob/master/images/kube-ns-cleaner.png?raw=true)
 
 # kube-ns-cleaner
 
