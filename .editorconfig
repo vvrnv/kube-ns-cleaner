@@ -1,0 +1,103 @@
+# Format settings
+
+# Global files settings
+[*]
+insert_final_newline=true
+trim_trailing_whitespace=true
+indent_style=space
+
+# GO files
+[{go.mod,go.sum,*.go}]
+indent_style=tab
+indent_size=4
+
+# JSON files
+[*.json]
+indent_size=2
+max_line_length=80
+
+# YAML files
+[*.{yml,yaml}]
+indent_size=2
+max_line_length=120
+
+# C# files
+[*.{cs,csx,vb,vbx,cs.cmake.in}]
+charset=utf-8-bom
+indent_size=4
+max_line_length=120
+
+# Markdown files
+[*.md]
+indent_size=4
+max_line_length=120
+
+# XML files
+[*.{svg,nuspec,targets,props,csproj,nuspec.cmake.in,targets.cmake.in,props.cmake.in,wxs,wxi,wxl}]
+indent_size=2
+max_line_length=120
+
+# C++ files
+[*.{c,h,cpp,hpp,c.cmake.in,h.cmake.in,cpp.cmake.in,hpp.cmake.in}]
+charset=utf-8-bom
+indent_size = 4
+max_line_length=120
+
+# Java files
+[*.java]
+charset=utf-8
+indent_size = 4
+max_line_length=120
+
+# Kotlin files
+[*.{kt,kts}]
+charset=utf-8-bom
+indent_size = 4
+max_line_length=120
+
+# JS / TS files
+[*.{js,jsx,ts,tsx}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=80
+
+# CSS files
+[*.{css,scss,sass,less,styl}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=80
+
+# HTML files
+[*.{html,pug}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=80
+
+# Swift files
+[*.{swift}]
+charset=utf-8-bom
+indent_size = 4
+max_line_length=120
+
+# Python files
+[*.{py}]
+charset=utf-8-bom
+indent_size = 4
+max_line_length=120
+
+# Script files
+[*.{sh,ps1,bat,cmd}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=120
+
+# CMake files
+[*.{cmake,podspec.cmake.in,podspec}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=120
+
+[{CMakeLists.txt,CMakeLists.var}]
+charset=utf-8-bom
+indent_size = 2
+max_line_length=120
