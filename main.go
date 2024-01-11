@@ -39,15 +39,14 @@ func statusHandler(logger zerolog.Logger) http.HandlerFunc {
 func main() {
 	// set up logging
 	runLogFile, _ := os.OpenFile(
-		//"/opt/app/log/kube-ns-cleaner.json",
-		"kube-ns-cleaner.json", // mac os debug
+		os.Getenv("KUBE_NS_CLEANER_LOGS_DIR"),
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY,
 		0664,
 	)
+
 	multi := zerolog.MultiLevelWriter(os.Stdout, runLogFile)
-	zerolog.TimeFieldFormat = zerolog.TimeFormatUnixMs
+	zerolog.TimeFieldFormat = "15:04:05.000"
 	log.Logger = zerolog.New(multi).With().Timestamp().Logger()
-	log.Logger = log.Logger.Output(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: "15:04:05.000"})
 
 	log.Info().Msg(("Kube-ns-cleaner is starting"))
 

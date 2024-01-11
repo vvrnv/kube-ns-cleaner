@@ -54,16 +54,12 @@ func K8sClient() {
 		log.Fatal().Msg(err.Error())
 	}
 
-	defaultExcludedNamespaces := config.Config.DefaultExcludedNamespaces
 	excludedNamespaces := config.Config.ExcludedNamespaces
 	scalingLifeTime := config.Config.ScalingLifeTime
 	deletingLifeTime := config.Config.DeleteingLifeTime
 
 	// print ns list with active time in hours
 	for _, ns := range namespaceList.Items {
-		if contains(defaultExcludedNamespaces, ns.Name) {
-			continue
-		}
 		if contains(excludedNamespaces, ns.Name) {
 			continue
 		}
