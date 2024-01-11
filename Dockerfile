@@ -1,12 +1,26 @@
-FROM golang:1.19.3-alpine3.16 as build
-WORKDIR /app
-COPY go.* ./
-RUN go mod download
-RUN export CGO_ENABLED=0
-COPY . ./
-RUN go build -v -o kube-ns-cleaner
+# syntax=docker/dockerfile:1
 
-FROM alpine:3.16.3
-RUN apk add --no-cache --update bash curl ca-certificates
-COPY --from=build /app/kube-ns-cleaner /app/kube-ns-cleaner
-ENTRYPOINT  [ "/app/kube-ns-cleaner" ]
+## Build
+FROM golang:1.21.4-alpine AS build
+
+WORKDIR /opt
+
+COPY go.mod ./
+COPY go.sum ./
+COPY config/config.yaml /opt/app/
+
+RUN go mod download
+
+COPY . ./
+
+RUN go build -o ./kube-ns-cleaner
+
+## Deploy
+FROM alpine:3.17.2
+
+WORKDIR /opt
+
+COPY --from=build /opt/kube-ns-cleaner ./kube-ns-cleaner
+COPY --from=build /opt/app/config.yaml /opt/app/
+
+ENTRYPOINT ["/opt/kube-ns-cleaner"]

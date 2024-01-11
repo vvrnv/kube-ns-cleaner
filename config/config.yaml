@@ -1,0 +1,22 @@
+defaultExcludedNamespaces:
+  - cert-manager
+  - default
+  - gitlab-runner
+  - ingress-nginx
+  - kube-node-lease
+  - kube-ns-cleaner
+  - kube-public
+  - kube-system
+  - monitoring
+
+excludedNamespaces:
+  - foo
+  - bar
+  - very-important-namespace
+
+# lifetime of namespaces in hours
+scalingLifeTime: 24
+deletingLifeTime: 72
+
+# scheduler settings for running application logic. local time
+cron: "00 11 * * *"
