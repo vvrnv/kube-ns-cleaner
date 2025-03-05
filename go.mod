@@ -5,7 +5,7 @@ toolchain go1.23.4
 
 require (
 	github.com/go-co-op/gocron v1.37.0
-	github.com/prometheus/client_golang v1.21.0
+	github.com/prometheus/client_golang v1.21.1
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/viper v1.19.0
 	k8s.io/apimachinery v0.32.2
